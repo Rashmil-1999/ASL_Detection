@@ -6,6 +6,7 @@ from itertools import repeat
 import importlib
 from cnn_model import buildCNNModel
 import prepare_data
+from pathlib import Path
 
 # ===define few parameters===
 
@@ -28,8 +29,9 @@ optimizer = "adam"
 metrics = ["accuracy"]
 
 # define paths
-models_path = "../trained_model/"
-pathToDatasetTrain = "../dataset/asl-alphabet/asl_alphabet_train/"
+os.chdir("..")
+models_path = Path(os.getcwd() + "/trained_model/")
+pathToDatasetTrain = Path(os.getcwd() + "/dataset/asl-alphabet/asl_alphabet_train/")
 # pathToDatasetTest = "../dataset/asl-alphabet/asl_alphabet_test/"
 
 # use the prprocessing of images and then prepare the data and load it into inputs and outputs
