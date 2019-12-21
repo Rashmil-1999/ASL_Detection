@@ -3,14 +3,11 @@ import cv2
 import numpy
 from itertools import repeat
 import importlib
+import glob
 
 
-def listALLFiles(path, formats=["png", "jpg", "jpeg", "tif"]):
-    results = []
-    for root, subFolders, files in os.walk(path):
-        for file in files:
-            if file.split(".")[-1] in formats:
-                results.append("/".join([root, file]))
+def listALLFiles(path):
+    results = glob.glob(path + "/*.jpg")         
     return results
 
 
@@ -28,13 +25,14 @@ def prepareData(size, path, num_classes):
     # for each class get all the images and apply preprocessing to each of them
     # and append them in the output and input arrays respectively.
     for _class in range(num_classes):
-        path = path + str(_class)
-        length = len(os.listdir(path))
+        path_temp = path + str(_class)
+        print(path_temp)
+        length = len(os.listdir(path_temp))
         samples = numpy.array(
             list(
                 map(
                     preProcessImage,
-                    listALLFiles(path),
+                    listALLFiles(path_temp),
                     repeat(size[0], length),
                     repeat(size[1], length),
                 )

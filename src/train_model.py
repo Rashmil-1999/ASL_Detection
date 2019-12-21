@@ -12,7 +12,7 @@ import prepare_data
 # general parameters for project
 num_classes = 29
 no_of_epochs = 10
-size = [200, 200]
+size = [64, 64]
 batch_size = 32
 
 # network parameters define
@@ -28,8 +28,8 @@ optimizer = "adam"
 metrics = ["accuracy"]
 
 # define paths
-models_path = "../trained_model/"
-pathToDatasetTrain = "../dataset/asl-alphabet/asl_alphabet_train/"
+models_path = "C:\\programming\\Quick-CNN-training\\trained_model\\"
+pathToDatasetTrain = "C:\\programming\\Quick-CNN-training\\dataset\\asl-alphabet\\asl_alphabet_train\\"
 # pathToDatasetTest = "../dataset/asl-alphabet/asl_alphabet_test/"
 
 # use the prprocessing of images and then prepare the data and load it into inputs and outputs
