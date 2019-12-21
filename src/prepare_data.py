@@ -7,7 +7,7 @@ import glob
 
 
 def listALLFiles(path):
-    results = glob.glob(path + "/*.jpg")         
+    results = glob.glob(path + "/*.jpg")
     return results
 
 
