@@ -18,6 +18,7 @@ labels = [
     "H",
     "I",
     "J",
+    "K",
     "L",
     "M",
     "N",
@@ -66,22 +67,22 @@ while True:
 
         cv2.rectangle(
             frame,
-            ((x_mid - 100), (y_mid - 100)),
-            ((x_mid + 100), (y_mid + 100)),
+            ((x_mid - 200), (y_mid - 200)),
+            ((x_mid + 200), (y_mid + 200)),
             (0, 0, 255),
             3,
         )
         cv2.putText(
             frame,
-            labels[emotion_label],
-            ((x_mid - 100), (y_mid - 100)),
+            labels[label],
+            ((x_mid - 200), (y_mid - 200)),
             cv2.FONT_HERSHEY_COMPLEX,
-            4,
+            2,
             (0, 255, 0),
             10,
         )
         cv2.imshow("recognition", frame)
-        if cv2.waitKey(1) == 27:
+        if cv2.waitKey(1) & 0xFF == ord("q"):
             break
 
 cv2.destroyAllWindows()
