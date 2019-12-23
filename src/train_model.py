@@ -13,7 +13,7 @@ from pathlib import Path
 # general parameters for project
 num_classes = 29
 no_of_epochs = 10
-size = [200, 200]
+size = [64, 64]
 batch_size = 32
 
 # network parameters define

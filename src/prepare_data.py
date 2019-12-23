@@ -26,6 +26,7 @@ def prepareData(size, path, num_classes):
     # and append them in the output and input arrays respectively.
     for _class in range(num_classes):
         path_temp = path + str(_class)
+        print(path_temp)
         length = len(os.listdir(path_temp))
         samples = numpy.array(
             list(

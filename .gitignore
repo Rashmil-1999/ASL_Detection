@@ -1,1 +1,4 @@
 .vscode
+.spyproject
+src/__pycache__
+dataset/asl-alphabet
