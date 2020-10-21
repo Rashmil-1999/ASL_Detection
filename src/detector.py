@@ -49,6 +49,7 @@ y_mid = int(cap.get(4) / 2)
 while True:
     ret_val, frame = cap.read()
     if ret_val == True:
+        key = ''
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         detection_region = gray[
             (y_mid - 200) : (y_mid + 200), (x_mid - 200) : (x_mid + 200)
@@ -65,16 +66,19 @@ while True:
         max_prob = numpy.max(probabilities)
         label = numpy.argmax(probabilities)
 
+        if cv2.waitKey(1) & 0xFF == ord("d"):
+            key = labels[label]
+
         cv2.rectangle(
             frame,
             ((x_mid - 200), (y_mid - 200)),
             ((x_mid + 200), (y_mid + 200)),
-            (0, 0, 255),
+            (0, 0, 255),q
             3,
         )
         cv2.putText(
             frame,
-            labels[label],
+            key,
             ((x_mid - 200), (y_mid - 200)),
             cv2.FONT_HERSHEY_COMPLEX,
             2,
